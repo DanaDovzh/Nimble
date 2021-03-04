@@ -4,6 +4,8 @@
     "description": "",
     "main": "webpack.config.js",
     "dependencies": {
+        "@material-ui/core": "^4.11.3",
+        "@material-ui/icons": "^4.11.2",
         "moment": "^2.29.1",
         "node-sass": "^4.13.1",
         "react": "^17.0.1",
