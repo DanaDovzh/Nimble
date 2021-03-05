@@ -1,28 +1,31 @@
-export const actionsType = {
+export const actionTypes = {
     addTracker: 'ADD_TRACKER',
 };
 
 const initialState = {
-    trackers: {
-        data: [
-            {
-                id: 1,
-                name: 'Hello',
-            },
-            {
-                id: 2,
-                name: 'fello',
-            },
-        ],
-    },
+    trackers: [
+        {
+            id: 1,
+            name: 'Hello',
+        },
+        {
+            id: 2,
+            name: 'fello',
+        },
+    ],
 };
 
 export function reducerTrackers(state = initialState, action) {
     switch (action.type) {
-        case actionsType.addTracker:
+        case actionTypes.addTracker:
+            const { name } = action.payload.newTracker;
+            const newTrackerAdd = {
+                id: 5,
+                name: name,
+            };
             return {
                 ...state,
-                tweets: action.payload,
+                trackers: [...state.trackers, newTrackerAdd],
             };
         default:
             return state;
