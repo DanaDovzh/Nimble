@@ -22,7 +22,7 @@ const AddRecord = () => {
         console.log(nameTracker);
     }, []);
     return (
-        <FormControl variant="outlined">
+        <FormControl variant="outlined" fullWidth>
             <InputLabel htmlFor="add-tracker">Add tracker</InputLabel>
             <OutlinedInput
                 id="add-tracker"

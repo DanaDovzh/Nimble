@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { Provider } from 'react-redux';
+import Container from '@material-ui/core/Container';
 import HeadLine from './HeadLine/HeadLine';
 import AddRecord from './PageRecords/AddRecord/AddRecord';
 import ListRecords from './PageRecords/ListRecords/ListRecords';
@@ -12,8 +13,10 @@ class App extends Component {
         return (
             <Provider store={store}>
                 <HeadLine title="Tracker" />
-                <AddRecord />
-                <ListRecords />
+                <Container maxWidth="xs">
+                    <AddRecord />
+                    <ListRecords />
+                </Container>
             </Provider>
         );
     }
