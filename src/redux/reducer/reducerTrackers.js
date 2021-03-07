@@ -6,11 +6,11 @@ const initialState = {
     trackers: [
         {
             id: 1,
-            name: 'Hello',
+            name: 'My new tracker',
         },
         {
             id: 2,
-            name: 'fello',
+            name: 'Blue sky',
         },
     ],
 };
