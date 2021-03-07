@@ -8,34 +8,24 @@ import ListRecords from './PageRecords/ListRecords/ListRecords';
 import './app.sass';
 import store from '../redux/store';
 
-const App = () => {
-    const allTrackers = {
-        trackers: [
-            {
-                name: 'My new tracker',
-                timeTracker: '0:40:43',
-            },
-            {
-                id: 2,
-                name: 'Blue sky',
-                timeTracker: '1:02:14',
-            },
-        ],
-    };
-
-    if (!localStorage.getItem('allTrackers')) {
-        localStorage.setItem('allTrackers', JSON.stringify(allTrackers));
+class App extends Component {
+    constructor(props) {
+        super(props);
+        this.state = { storeState: store };
     }
-
-    return (
-        <Provider store={store}>
-            <HeadLine title="Tracker" />
-            <Container maxWidth="xs">
-                <AddRecord />
-                <ListRecords />
-            </Container>
-        </Provider>
-    );
-};
+    render() {
+        return (
+            <Provider store={this.state.storeState}>
+                <main className="main">
+                    <HeadLine title="Tracker" />
+                    <div className="wrapper">
+                        <AddRecord />
+                        <ListRecords />
+                    </div>
+                </main>
+            </Provider>
+        );
+    }
+}
 
 export default App;

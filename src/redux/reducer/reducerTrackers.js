@@ -1,10 +1,13 @@
+import moment from 'moment';
 export const actionTypes = {
     addTracker: 'ADD_TRACKER',
+    timeTracker: 'TIME_TRACKER_MORE',
 };
 
 const allTrackers = {
     trackers: [
         {
+            id: 1,
             name: 'My new tracker',
             timeTracker: '0:40:43',
         },
@@ -27,6 +30,7 @@ export function reducerTrackers(state = initialState, action) {
         case actionTypes.addTracker:
             const { name } = action.payload.newTracker;
             const newTrackerAdd = {
+                id: state.trackers.length + 1,
                 name: name,
                 timeTracker: '0:00:00',
             };
@@ -36,6 +40,14 @@ export function reducerTrackers(state = initialState, action) {
             };
             localStorage.setItem('allTrackers', JSON.stringify(newAllTrackers));
             return newAllTrackers;
+        case actionTypes.timeTracker:
+            state.trackers.map((tracker) => {
+                if (tracker.id === action.payload.id) {
+                    tracker.timeTracker = moment().format('h:mm:ss');
+                    localStorage.setItem('allTrackers', JSON.stringify(state));
+                }
+            });
+            return JSON.parse(localStorage.getItem('allTrackers'));
         default:
             return state;
     }

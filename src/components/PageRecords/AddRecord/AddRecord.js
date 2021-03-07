@@ -19,7 +19,7 @@ const AddRecord = () => {
         dispatch(addTracker(newTracker));
         setNameTracker('');
     };
- 
+
     return (
         <FormControl variant="outlined" fullWidth>
             <InputLabel htmlFor="add-tracker">Add tracker</InputLabel>
@@ -32,11 +32,14 @@ const AddRecord = () => {
                 endAdornment={
                     <InputAdornment position="end">
                         <IconButton onClick={handlerAddTracker}>
-                            <PlayCircleFilledRoundedIcon fontSize="large" />
+                            <PlayCircleFilledRoundedIcon
+                                fontSize="large"
+                                className="btn--add"
+                            />
                         </IconButton>
                     </InputAdornment>
                 }
-                labelWidth={70}
+                labelWidth={85}
             />
         </FormControl>
     );
