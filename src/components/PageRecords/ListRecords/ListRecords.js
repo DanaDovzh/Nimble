@@ -6,12 +6,11 @@ import Record from './Record';
 const ListRecords = () => {
     const dispatch = useDispatch();
     const trackers = useSelector((state) => state.reducerTrackers.trackers);
-
-    console.log(trackers);
+    const trackersReversed = [...trackers].reverse();
     return (
         <ul>
-            {trackers.reverse().map((i) => (
-                <Record name={i.name} />
+            {trackersReversed.map((tracker) => (
+                <Record name={tracker.name} />
             ))}
         </ul>
     );
