@@ -11,12 +11,13 @@ import PlayCircleFilledRoundedIcon from '@material-ui/icons/PlayCircleFilledRoun
 import { addTracker } from '../../../redux/action/action';
 const AddRecord = () => {
     const dispatch = useDispatch();
-    const [nameTracker, setNameTracker] = useState(false);
+    const [nameTracker, setNameTracker] = useState('');
     const handlerAddTracker = () => {
         const newTracker = {
             name: nameTracker ? nameTracker : moment().format('YYYY-MM-DD'),
         };
         dispatch(addTracker(newTracker));
+        setNameTracker('');
     };
     useEffect(() => {
         console.log(nameTracker);
@@ -29,6 +30,7 @@ const AddRecord = () => {
                 type="text"
                 placeholder="Enter tracker name"
                 onChange={(e) => setNameTracker(e.target.value)}
+                value={nameTracker}
                 endAdornment={
                     <InputAdornment position="end">
                         <IconButton onClick={handlerAddTracker}>
