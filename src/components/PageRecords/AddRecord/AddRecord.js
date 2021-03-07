@@ -19,9 +19,7 @@ const AddRecord = () => {
         dispatch(addTracker(newTracker));
         setNameTracker('');
     };
-    useEffect(() => {
-        console.log(nameTracker);
-    }, []);
+ 
     return (
         <FormControl variant="outlined" fullWidth>
             <InputLabel htmlFor="add-tracker">Add tracker</InputLabel>

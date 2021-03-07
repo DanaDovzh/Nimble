@@ -6,11 +6,12 @@ import PlayCircleOutlineIcon from '@material-ui/icons/PlayCircleOutline';
 
 import './record.sass';
 
-const Record = ({ name }) => {
+const Record = ({ name, timeTracker }) => {
     return (
         <li class="record">
             {name}
             <p>
+                <span>{timeTracker}</span>
                 <IconButton>
                     <PlayCircleOutlineIcon fontSize="small" />
                 </IconButton>

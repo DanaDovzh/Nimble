@@ -2,31 +2,40 @@ export const actionTypes = {
     addTracker: 'ADD_TRACKER',
 };
 
-const initialState = {
+const allTrackers = {
     trackers: [
         {
-            id: 1,
             name: 'My new tracker',
+            timeTracker: '0:40:43',
         },
         {
             id: 2,
             name: 'Blue sky',
+            timeTracker: '1:02:14',
         },
     ],
 };
+
+if (!localStorage.getItem('allTrackers')) {
+    localStorage.setItem('allTrackers', JSON.stringify(allTrackers));
+}
+
+const initialState = JSON.parse(localStorage.getItem('allTrackers'));
 
 export function reducerTrackers(state = initialState, action) {
     switch (action.type) {
         case actionTypes.addTracker:
             const { name } = action.payload.newTracker;
             const newTrackerAdd = {
-                id: 5,
                 name: name,
+                timeTracker: '0:00:00',
             };
-            return {
+            const newAllTrackers = {
                 ...state,
                 trackers: [...state.trackers, newTrackerAdd],
             };
+            localStorage.setItem('allTrackers', JSON.stringify(newAllTrackers));
+            return newAllTrackers;
         default:
             return state;
     }

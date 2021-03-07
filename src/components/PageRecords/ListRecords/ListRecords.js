@@ -10,7 +10,7 @@ const ListRecords = () => {
     return (
         <ul>
             {trackersReversed.map((tracker) => (
-                <Record name={tracker.name} />
+                <Record name={tracker.name} timeTracker={tracker.timeTracker} />
             ))}
         </ul>
     );
